@@ -4,14 +4,13 @@ import Link from "next/link";
 import VehicleMakeSelector from "./components/VehicleMakeSelector";
 import VehicleYearSelector from "./components/VehicleYearSelector";
 import { FilterProvider, useFilter } from "./contexts/FilterContext";
-import Footer from "./sections/Footer";
 import MainSection from "./sections/MainSection";
 
 const HomeContent = () => {
   const { selectedMakeId, selectedYear } = useFilter();
 
   return (
-    <div className="flex flex-col justify-between items-center gap-16 min-h-screen pt-24">
+    <div className="flex flex-col justify-between items-center gap-16 pt-24">
       <section className="bg-white p-4 rounded-lg w-full max-w-3xl mx-auto flex justify-center items-center gap-2">
         <p>Select car model and year:</p>
         <VehicleMakeSelector />
@@ -32,7 +31,6 @@ const HomeContent = () => {
         </Link>
       </section>
       <MainSection />
-      <Footer />
     </div>
   );
 };
