@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "./sections/Header";
 
 export const metadata: Metadata = {
   title: "CarsToday - Buy and Sell Cars",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`$antialiased`}>{children}</body>
+      <body className={`antialiased bg-slate-200`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
