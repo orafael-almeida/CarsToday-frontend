@@ -32,7 +32,7 @@ const MOCK_CARS = [
 
 const MainSection = () => {
   return (
-    <main className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 rounded-lg w-full max-w-7xl mx-auto justify-center items-center px-4">
+    <main className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 rounded-lg w-full max-w-7xl mx-auto justify-center items-center">
       {MOCK_CARS.map((car) => (
         <div key={car.model} className="w-full bg-white rounded-lg shadow-md">
           <div className="relative w-full h-72 mb-2">

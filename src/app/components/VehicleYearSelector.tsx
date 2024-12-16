@@ -1,36 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useFilter } from "../contexts/FilterContext";
 
 const VehicleYearSelector = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedYear, setSelectedYear] = useState("");
+  const {
+    isYearOpen,
+    setIsYearOpen,
+    setIsMakeOpen,
+    selectedYear,
+    handleYearChange,
+  } = useFilter();
 
   const currentYear = new Date().getFullYear();
   const years = Array.from(
     { length: currentYear - 2015 + 1 },
-    (_, i) => currentYear - i
+    (_, i) => 2015 + i
   );
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setSelectedYear(event.target.value);
-    setIsOpen(false);
-  };
 
   return (
     <div className="relative inline-block text-left">
       <button
-        onClick={toggleDropdown}
+        onClick={() => {
+          setIsYearOpen(!isYearOpen);
+          setIsMakeOpen(false);
+        }}
         className="bg-red-500 text-white focus:ring-2 focus:outline-none focus:ring-gray-400 font-medium rounded-lg text-sm h-9 px-6 text-center items-center"
         type="button"
       >
         Year
       </button>
-      {isOpen && (
+      {isYearOpen && (
         <div className="absolute z-10 w-48 max-h-60 bg-white divide-y divide-gray-100 rounded-lg shadow overflow-y-auto scrollbar-red">
           <ul
             className="p-3 space-y-1 text-sm text-gray-700"
@@ -51,7 +50,7 @@ const VehicleYearSelector = () => {
                     value={year}
                     name="car-year"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
-                    onChange={handleChange}
+                    onChange={handleYearChange}
                     checked={selectedYear === year.toString()}
                   />
                   <label
