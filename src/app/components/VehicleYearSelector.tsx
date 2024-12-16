@@ -14,7 +14,7 @@ const VehicleYearSelector = () => {
   const currentYear = new Date().getFullYear();
   const years = Array.from(
     { length: currentYear - 2015 + 1 },
-    (_, i) => 2015 + i
+    (_, i) => currentYear - i
   );
 
   return (
