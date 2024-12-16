@@ -1,8 +1,8 @@
 "use client";
 
+import { useFilter } from "../contexts/FilterContext";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useFilter } from "../contexts/FilterContext";
 
 interface MakeOption {
   MakeId: number;
@@ -14,7 +14,7 @@ const VehicleMakeSelector = () => {
     isMakeOpen,
     setIsMakeOpen,
     setIsYearOpen,
-    selectedMake,
+    selectedMakeId,
     handleMakeChange,
   } = useFilter();
 
@@ -55,7 +55,7 @@ const VehicleMakeSelector = () => {
               <li key={option.MakeId}>
                 <div
                   className={`flex items-center p-2 rounded ${
-                    selectedMake === option.MakeName
+                    selectedMakeId === option.MakeId.toString()
                       ? "bg-red-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -63,11 +63,11 @@ const VehicleMakeSelector = () => {
                   <input
                     id={`radio-${option.MakeId}`}
                     type="radio"
-                    value={option.MakeName}
+                    value={option.MakeId}
                     name="car-make"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
                     onChange={handleMakeChange}
-                    checked={selectedMake === option.MakeName}
+                    checked={selectedMakeId === option.MakeId.toString()}
                   />
                   <label
                     htmlFor={`radio-${option.MakeId}`}

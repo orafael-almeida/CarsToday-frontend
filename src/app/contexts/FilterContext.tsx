@@ -1,20 +1,14 @@
-'use client'
-
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 interface FilterContextProps {
   isMakeOpen: boolean;
-  isYearOpen: boolean;
-
   setIsMakeOpen: (isOpen: boolean) => void;
+  isYearOpen: boolean;
   setIsYearOpen: (isOpen: boolean) => void;
-
-  selectedMake: string;
+  selectedMakeId: string;
+  setSelectedMakeId: (makeId: string) => void;
   selectedYear: string;
-
-  setSelectedMake: (make: string) => void;
   setSelectedYear: (year: string) => void;
-
   handleMakeChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleYearChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -24,13 +18,13 @@ const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [isMakeOpen, setIsMakeOpen] = useState(false);
   const [isYearOpen, setIsYearOpen] = useState(false);
-  const [selectedMake, setSelectedMake] = useState("");
+  const [selectedMakeId, setSelectedMakeId] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
 
   const handleMakeChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    setSelectedMake(event.target.value);
+    setSelectedMakeId(event.target.value);
     setIsMakeOpen(false);
   };
 
@@ -45,12 +39,12 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
     <FilterContext.Provider
       value={{
         isMakeOpen,
-        isYearOpen,
         setIsMakeOpen,
+        isYearOpen,
         setIsYearOpen,
-        selectedMake,
+        selectedMakeId,
+        setSelectedMakeId,
         selectedYear,
-        setSelectedMake,
         setSelectedYear,
         handleMakeChange,
         handleYearChange,
