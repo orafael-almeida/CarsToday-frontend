@@ -11,8 +11,9 @@ const HomeContent = () => {
 
   return (
     <div className="flex flex-col justify-between items-center gap-16 pt-24">
-      <section className="bg-white p-4 rounded-lg w-full max-w-3xl mx-auto flex justify-center items-center gap-2">
-        <p>Select car model and year:</p>
+      <section className="bg-white p-4 rounded-lg w-full max-w-3xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-2">
+        <p className="">Select car model and year:</p>
+        <div className="flex justify-center items-center gap-2">
         <VehicleMakeSelector />
         <VehicleYearSelector />
         <Link
@@ -29,6 +30,7 @@ const HomeContent = () => {
         >
           Next
         </Link>
+        </div>
       </section>
       <MainSection />
     </div>

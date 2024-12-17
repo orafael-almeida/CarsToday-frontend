@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import Spinner from "./Spinner";
 
 interface Model {
   Make_ID: number;
@@ -11,31 +11,36 @@ interface Model {
   Model_Name: string;
 }
 
-const CarsTable = () => {
+const CarsTable = ({ makeId, year }: { makeId: string; year: string }) => {
   const [models, setModels] = useState<Model[]>([]);
-  const pathname = usePathname();
-
-  // Extract makeId and year from the pathname
-  const pathSegments = pathname.split("/");
-  const makeId = pathSegments[2];
-  const year = pathSegments[3];
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (makeId && year) {
       const fetchCars = async () => {
         try {
-          const response = await axios.get(
-            `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/${makeId}/modelyear/${year}?format=json`
+          const url = process.env.NEXT_PUBLIC_VEHICLE_DATA_URL?.replace("{makeId}", makeId).replace("{year}", year);
+          const response = await axios.get(url!
           );
           setModels(response.data.Results || []);
         } catch (err) {
           console.error(err);
+        } finally {
+          setLoading(false);
         }
       };
 
       fetchCars();
     }
   }, [makeId, year]);
+
+  if (loading) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className="relative overflow-x-auto overflow-y-auto md:px-16 lg:px-32 xl:px-64 h-[70vh] scrollbar-red">
