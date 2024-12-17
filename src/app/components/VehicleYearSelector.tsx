@@ -38,7 +38,7 @@ const VehicleYearSelector = () => {
             {years.map((year) => (
               <li key={year}>
                 <div
-                  className={`flex items-center p-2 rounded ${
+                  className={`flex items-center p-2 rounded cursor-pointer ${
                     selectedYear === year.toString()
                       ? "bg-red-500 text-white"
                       : "hover:bg-gray-100"
@@ -49,13 +49,13 @@ const VehicleYearSelector = () => {
                     type="radio"
                     value={year}
                     name="car-year"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 cursor-pointer"
                     onChange={handleYearChange}
                     checked={selectedYear === year.toString()}
                   />
                   <label
                     htmlFor={`radio-${year}`}
-                    className="w-full ml-2 text-sm font-medium text-gray-900 rounded"
+                    className="w-full ml-2 text-sm font-medium text-gray-900 rounded cursor-pointer"
                   >
                     {year}
                   </label>
