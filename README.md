@@ -69,8 +69,8 @@ To use this project you must have previously installed the following packages:
 **01 - Cloning the Repository**
 
 ```bash
-git clone https://github.com/orafael-almeida/CarsToday-frontend
-cd CarsToday-frontend
+git clone https://github.com/orafael-almeida/cars-today-frontend
+cd cars-today-frontend
 ```
 
 **02 - Installation**
@@ -112,9 +112,6 @@ NEXT_PUBLIC_VEHICLE_DATA_URL=https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsFo
 
 
 ## <a name="versions">📅 Release History</a>
-
-
-
 
 * 0.1.0
     * The first release
