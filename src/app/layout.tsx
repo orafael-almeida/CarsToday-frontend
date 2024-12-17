@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "./sections/Header";
-import Footer from "./sections/Footer";
+import { Header } from "@/sections/Header";
+import Footer from "@/sections/Footer";
 
 export const metadata: Metadata = {
   title: "CarsToday - Buy and Sell Cars",

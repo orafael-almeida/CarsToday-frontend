@@ -1,8 +1,8 @@
 "use client";
 
-import { useFilter } from "../contexts/FilterContext";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useFilter } from "@/contexts/FilterContext";
 import Spinner from "./Spinner";
 
 interface MakeOption {

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import volvoImg from "@/app/assets/images/volvo.webp";
-import bmwImg from "@/app/assets/images/bmw.webp";
-import teslaImg from "@/app/assets/images/tesla.webp";
+import volvoImg from "@/assets/images/volvo.webp"
+import teslaImg from "@/assets/images/tesla.webp"
+import bmwImg from "@/assets/images/bmw.webp"
 
 const MOCK_CARS = [
   {

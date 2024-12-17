@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
-import { generateStaticParams as fetchStaticParams } from "@/app/lib/generateStaticParams";
-import Spinner from "@/app/components/Spinner";
+import { generateStaticParams as fetchStaticParams } from "@/lib/generateStaticParams";
+import Spinner from "@/components/Spinner";
 
-const CarsTable = dynamic(() => import("@/app/components/CarsTable"), {
+const CarsTable = dynamic(() => import("@/components/CarsTable"), {
   suspense: true,
 });
 

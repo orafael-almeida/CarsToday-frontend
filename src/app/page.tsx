@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import VehicleMakeSelector from "./components/VehicleMakeSelector";
-import VehicleYearSelector from "./components/VehicleYearSelector";
-import { FilterProvider, useFilter } from "./contexts/FilterContext";
-import MainSection from "./sections/MainSection";
+import VehicleMakeSelector from "@/components/VehicleMakeSelector";
+import VehicleYearSelector from "@/components/VehicleYearSelector";
+import { FilterProvider, useFilter } from "@/contexts/FilterContext";
+import MainSection from "@/sections/MainSection";
 
 const HomeContent = () => {
   const { selectedMakeId, selectedYear } = useFilter();

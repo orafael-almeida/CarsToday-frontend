@@ -1,4 +1,4 @@
-import logoImg from "@/app/assets/logo.svg";
+import logoImg from "@/assets/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { FiUser } from "react-icons/fi";
@@ -19,6 +19,6 @@ export function Header() {
       </header>
     </div>
 
-    
+
   );
 }
